@@ -14,6 +14,9 @@ pipeline {
          }
        }
       stage(' Test the multibranch pipeline') {
-        
-    }
+        steps {
+          echo "Test"
+     }
+  }
  }
+}
