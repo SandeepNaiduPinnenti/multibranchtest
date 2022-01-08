@@ -2,7 +2,7 @@ string cron_string="${env.BRANCH_NAME}" == "dev" ? "* * * * *" : ""
 pipeline {
   agent any
     triggers {
-        cron(cron_string)
+      pollSCM('* * * * *')
     }
     options {
       buildDiscarder(logRotater(numTokeepStr: '1'))
@@ -10,7 +10,7 @@ pipeline {
     stages {
       stage('Biuld when branch is dev') {
         steps {
-          git branch: 'dev', url: 'https://github.com/sandeep1197/multibranchtest.git'
+         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sandeep1197/multibranchtest.git']]])
          }
        }
       stage(' Test the multibranch pipeline') {
