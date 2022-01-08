@@ -5,7 +5,7 @@ pipeline {
         cron(cron_string)
     }
     options {
-      buildDiscarder(logRotator(numTokeepStr: '1'))
+      buildDiscarder(logRotator(numToKeepStr: '1'))
     }
     stages {
       stage('Biuld when branch is dev') {
