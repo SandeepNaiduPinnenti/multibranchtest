@@ -4,11 +4,16 @@ pipeline {
     triggers {
         cron(cron_string)
     }
+    options {
+      buildDiscarder(logRotater(numTokeepStr: '1'))
+    }
     stages {
       stage('Biuld when branch is dev') {
         steps {
           git branch: 'dev', url: 'https://github.com/sandeep1197/multibranchtest.git'
          }
        }
+      stage(' Test the multibranch pipeline') {
+        
     }
  }
