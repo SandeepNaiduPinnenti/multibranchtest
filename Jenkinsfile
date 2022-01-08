@@ -10,5 +10,10 @@ pipeline {
          git 'https://github.com/sandeep1197/multibranchtest.git'
         }
      }
+      stage('Print Hello World') {
+        steps { 
+          echo "Hello World" 
+       }
+  }
   }
 }
