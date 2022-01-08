@@ -1,10 +1,9 @@
+String cron_string = BRANCH_NAME == "develop" ? "* * * * *" : ""
 pipeline {
-    triggers {
-      when {
-        branch master
-      }
-    }
     agent any
+    triggers {
+      cron(cron_string)
+      }
     stages {
       stage('Build if the brach is dev') {
         steps {
