@@ -5,7 +5,7 @@ pipeline {
       pollSCM('* * * * *')
     }
     options {
-      buildDiscarder(logRotater(numTokeepStr: '1'))
+      buildDiscarder(logRotator(numToKeepStr: '1'))
     }
     stages {
       stage('Biuld when branch is dev') {
@@ -14,6 +14,9 @@ pipeline {
          }
        }
       stage(' Test the multibranch pipeline') {
-        
-    }
+        steps {
+          echo "Test"
+     }
+  }
  }
+}
